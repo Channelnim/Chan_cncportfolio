@@ -34,24 +34,26 @@ export const Projects: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Project 1: NIMS Practice with Interactive Image Slide Carousel */}
-          <article className="bg-[#fcf9f5] border border-[#16140d]/10 hover:border-[#ff7a30]/50 transition-colors duration-300 flex flex-col justify-between shadow-sm">
-            {/* Responsive Image Slider */}
-            <div>
+          <article className="bg-[#fcf9f5] border border-[#16140d]/10 hover:border-[#ff7a30]/50 transition-colors duration-300 flex flex-col shadow-sm">
+            {/* Responsive Image Slider with Direct Bottom Border */}
+            <div className="w-full border-b border-[#16140d]/10">
               <NimsImageSlider slides={nimsSlideImages} sliderId="nims-slider" />
             </div>
 
             {/* Project Details */}
-            <div className="p-6 sm:p-8 md:p-10 border-t border-[#16140d]/10">
-              <p className="text-[0.6rem] uppercase tracking-[0.25em] text-[#ff7a30] font-medium mb-3">
-                Project 01 / NIMS
-              </p>
-              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#16140d] mb-4">
-                NIMS CNC Milling Component
-              </h3>
-              <p className="text-sm text-[#16140d]/70 font-light leading-loose mb-6">
-                Aluminum part machined on a Haas mill. Training focused on blueprint interpretation, feeds and speeds calculations, setup, workholding, and machining to the documented ±0.003" tolerance. Features include stepped shelf, central slot pocket, and precise circular arc cutouts.
-              </p>
-              <div className="flex flex-wrap gap-2">
+            <div className="p-6 sm:p-8 md:p-10 flex-1 flex flex-col justify-between">
+              <div>
+                <p className="text-[0.6rem] uppercase tracking-[0.25em] text-[#ff7a30] font-medium mb-3">
+                  Project 01 / NIMS
+                </p>
+                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#16140d] mb-4">
+                  NIMS CNC Milling Component
+                </h3>
+                <p className="text-sm text-[#16140d]/70 font-light leading-loose mb-6">
+                  Aluminum part machined on a Haas mill. Training focused on blueprint interpretation, feeds and speeds calculations, setup, workholding, and machining to the documented ±0.003" tolerance. Features include stepped shelf, central slot pocket, and precise circular arc cutouts.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
                 <span className="font-sans text-[0.55rem] uppercase tracking-[0.2em] border border-[#16140d]/20 px-3 py-1.5 text-[#16140d]/70 bg-white hover:border-[#ff7a30] hover:text-[#ff7a30] transition-colors">
                   HAAS MILL
                 </span>
@@ -69,22 +71,24 @@ export const Projects: React.FC = () => {
           </article>
 
           {/* Project 2: Radius + Canned Cycle + Slot */}
-          <article className="bg-[#fcf9f5] border border-[#16140d]/10 hover:border-[#ff7a30]/50 transition-colors duration-300 flex flex-col justify-between shadow-sm">
-            {/* Responsive Image Slider */}
-            <div>
+          <article className="bg-[#fcf9f5] border border-[#16140d]/10 hover:border-[#ff7a30]/50 transition-colors duration-300 flex flex-col shadow-sm">
+            {/* Responsive Image Slider with Direct Bottom Border */}
+            <div className="w-full border-b border-[#16140d]/10">
               <NimsImageSlider slides={waxSlideImages} sliderId="wax-slider" imageFit="contain" />
             </div>
-            <div className="p-6 sm:p-8 md:p-10 border-t border-[#16140d]/10">
-              <p className="text-[0.6rem] uppercase tracking-[0.25em] text-[#ff7a30] font-medium mb-3">
-                Project 02 / CNC Practice
-              </p>
-              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#16140d] mb-4">
-                Radius + Canned Cycle + Slot
-              </h3>
-              <p className="text-sm text-[#16140d]/70 font-light leading-loose mb-6">
-                Machining-wax practice covering radius corner contouring, horizontal slotting operations, diamond coordinate patterns, and canned drilling cycles. Demonstrates converting technical blueprints into programmed CNC mill toolpaths.
-              </p>
-              <div className="flex flex-wrap gap-2">
+            <div className="p-6 sm:p-8 md:p-10 flex-1 flex flex-col justify-between">
+              <div>
+                <p className="text-[0.6rem] uppercase tracking-[0.25em] text-[#ff7a30] font-medium mb-3">
+                  Project 02 / CNC Practice
+                </p>
+                <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#16140d] mb-4">
+                  Radius + Canned Cycle + Slot
+                </h3>
+                <p className="text-sm text-[#16140d]/70 font-light leading-loose mb-6">
+                  Machining-wax practice covering radius corner contouring, horizontal slotting operations, diamond coordinate patterns, and canned drilling cycles. Demonstrates converting technical blueprints into programmed CNC mill toolpaths.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2 pt-2">
                 <span className="font-sans text-[0.55rem] uppercase tracking-[0.2em] border border-[#16140d]/20 px-3 py-1.5 text-[#16140d]/70 bg-white hover:border-[#ff7a30] hover:text-[#ff7a30] transition-colors">
                   G-CODE
                 </span>
