@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <script>
+      (function() {
+        var isBenign = function(msg) {
+          if (!msg) return true;
+          var str = String(msg).toLowerCase();
+          return str.indexOf('script error') !== -1 ||
+                 str.indexOf('websocket') !== -1 ||
+                 str.indexOf('failed to connect') !== -1 ||
+                 str.indexOf('vite:ws') !== -1;
+        };
+
+        window.addEventListener('error', function(event) {
+          var msg = event.message || (event.error && event.error.message) || '';
+          if (!event.filename || isBenign(msg)) {
+            if (event.preventDefault) event.preventDefault();
+            if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+
+        window.addEventListener('unhandledrejection', function(event) {
+          var msg = (event.reason && (event.reason.message || event.reason.stack)) || String(event.reason || '');
+          if (isBenign(msg)) {
+            if (event.preventDefault) event.preventDefault();
+            if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+
+        var prevOnError = window.onerror;
+        window.onerror = function(message, source, lineno, colno, error) {
+          if (!source || isBenign(message)) {
+            return true;
+          }
+          if (typeof prevOnError === 'function') {
+            return prevOnError.apply(this, arguments);
+          }
+        };
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyungchan OH | CNC Machinist</title>
+    <meta name="description" content="Hyungchan Oh — CNC Machinist portfolio featuring hands-on Haas CNC milling, G-code, blueprint reading, setup, precision measurement, and NIMS practice gallery." />
+    <meta property="og:title" content="Hyungchan OH | CNC Machinist" />
+    <meta property="og:description" content="Hyungchan Oh — CNC Machinist portfolio featuring hands-on Haas CNC milling, G-code, blueprint reading, setup, precision measurement, and NIMS practice gallery." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" crossorigin src="/src/main.tsx"></script>
+  </body>
+</html>
