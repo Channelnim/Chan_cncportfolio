@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { ShaderBackground } from './ui/mesh-portfolio';
 
 const HERO_IMAGE_CANDIDATES = [
-  '/images/IMG_9754.png',
+  '/images/IMG_9754.webp',
   '/images/IMG_9754.jpg',
+  '/images/IMG_9754.png',
   '/images/IMG_9754.JPG',
   '/images/IMG_9754.PNG',
   '/images/IMG_9754.jpeg',
-  '/images/IMG_9754.webp',
 ];
 
 export const Hero: React.FC = () => {
   const [candidateIdx, setCandidateIdx] = useState(0);
-  const [cacheBuster] = useState(() => Date.now());
   const [hasFailedAll, setHasFailedAll] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
 
   const handleImgError = () => {
     if (candidateIdx < HERO_IMAGE_CANDIDATES.length - 1) {
@@ -25,7 +25,14 @@ export const Hero: React.FC = () => {
     }
   };
 
-  const currentImgUrl = `${HERO_IMAGE_CANDIDATES[candidateIdx]}?v=${cacheBuster}`;
+  const currentImgUrl = HERO_IMAGE_CANDIDATES[candidateIdx];
+
+  // If the browser already has the image in cache, reveal it immediately
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete && imgRef.current.naturalWidth > 0) {
+      setImageLoaded(true);
+    }
+  }, [currentImgUrl]);
 
   return (
     <section className="relative w-full min-h-[85vh] flex flex-col justify-center px-6 md:px-10 py-16 sm:py-20 overflow-hidden">
@@ -49,21 +56,24 @@ export const Hero: React.FC = () => {
         >
           <motion.div
             className="relative w-full h-full"
-            initial={{ opacity: 0, x: 45, scale: 1.08 }}
+            initial={{ opacity: 0, x: 24, scale: 1.03 }}
             animate={
               imageLoaded
                 ? { opacity: 1, x: 0, scale: 1 }
-                : { opacity: 0, x: 45, scale: 1.08 }
+                : { opacity: 0, x: 24, scale: 1.03 }
             }
             transition={{
-              duration: 1.4,
+              duration: 0.65,
               ease: [0.16, 1, 0.3, 1],
             }}
           >
             <img
+              ref={imgRef}
               key={currentImgUrl}
               src={currentImgUrl}
               alt="CNC Machinist trainee operating Haas milling machine (IMG_9754)"
+              fetchPriority="high"
+              decoding="async"
               onLoad={() => setImageLoaded(true)}
               onError={handleImgError}
               className="w-full h-full object-cover object-center grayscale contrast-[1.10] brightness-[0.98] opacity-90 mix-blend-multiply"
