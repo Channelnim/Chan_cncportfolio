@@ -41,10 +41,10 @@ export const Hero: React.FC = () => {
         <ShaderBackground className="w-full h-full" />
       </div>
 
-      {/* CNC Machinist Photo Background Layer (User's IMG_9754 with alpha fade) */}
+      {/* CNC Machinist Photo Background Layer (User's IMG_9754 with alpha fade - hidden on mobile) */}
       {!hasFailedAll && (
         <div
-          className="absolute inset-y-0 right-0 w-full sm:w-[85%] md:w-[70%] lg:w-[58%] xl:w-[52%] h-full z-[1] pointer-events-none overflow-hidden select-none"
+          className="hidden md:block absolute inset-y-0 right-0 md:w-[70%] lg:w-[58%] xl:w-[52%] h-full z-[1] pointer-events-none overflow-hidden select-none"
           style={{
             maskImage:
               'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 4%, black 18%), linear-gradient(to top, transparent 0%, black 10%)',
