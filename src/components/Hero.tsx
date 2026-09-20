@@ -179,19 +179,19 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.72 }}
           className="mt-16 sm:mt-20 grid grid-cols-2 md:grid-cols-4 border-y border-[#16140d]/10"
         >
-          <div className="py-8 sm:py-10 md:px-6 border-r border-b md:border-b-0 border-[#16140d]/10 flex flex-col justify-center group cursor-default">
+          <div className="py-8 sm:py-10 pl-4 sm:pl-6 md:px-6 border-r border-b md:border-b-0 border-[#16140d]/10 flex flex-col justify-center group cursor-default">
             <div className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#172535] group-hover:text-[#ff7a30] transition-colors">500+</div>
             <div className="text-[0.6rem] uppercase tracking-[0.25em] text-[#16140d]/50 mt-2 sm:mt-3">Training Hours</div>
           </div>
-          <div className="py-8 sm:py-10 md:px-6 md:border-r border-b md:border-b-0 border-[#16140d]/10 flex flex-col justify-center group cursor-default">
+          <div className="py-8 sm:py-10 pl-4 sm:pl-6 md:px-6 md:border-r border-b md:border-b-0 border-[#16140d]/10 flex flex-col justify-center group cursor-default">
             <div className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#172535] group-hover:text-[#ff7a30] transition-colors">7 yrs</div>
             <div className="text-[0.6rem] uppercase tracking-[0.25em] text-[#16140d]/50 mt-2 sm:mt-3">Design Experience</div>
           </div>
-          <div className="py-8 sm:py-10 md:px-6 border-r border-[#16140d]/10 flex flex-col justify-center group cursor-default">
+          <div className="py-8 sm:py-10 pl-4 sm:pl-6 md:px-6 border-r border-[#16140d]/10 flex flex-col justify-center group cursor-default">
             <div className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#172535] group-hover:text-[#ff7a30] transition-colors">NIMS</div>
             <div className="text-[0.6rem] uppercase tracking-[0.25em] text-[#16140d]/50 mt-2 sm:mt-3">CNC Level I Milling</div>
           </div>
-          <div className="py-8 sm:py-10 md:px-6 flex flex-col justify-center group cursor-default">
+          <div className="py-8 sm:py-10 pl-4 sm:pl-6 md:px-6 flex flex-col justify-center group cursor-default">
             <div className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#172535] group-hover:text-[#ff7a30] transition-colors">OSHA 10</div>
             <div className="text-[0.6rem] uppercase tracking-[0.25em] text-[#16140d]/50 mt-2 sm:mt-3">General Industry</div>
           </div>
