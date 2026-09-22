@@ -12,7 +12,7 @@ export default defineConfig(() => {
         name: 'disable-image-cache',
         configureServer(server) {
           server.middlewares.use((req, res, next) => {
-            if (req.url && (req.url.startsWith('/images') || req.url.includes('/images/'))) {
+            if (req.url && (req.url.startsWith('/images') || req.url.includes('/images/') || req.url.endsWith('.pdf'))) {
               res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
               res.setHeader('Pragma', 'no-cache');
               res.setHeader('Expires', '0');
